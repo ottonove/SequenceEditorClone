@@ -1,6 +1,8 @@
 #pragma once
 #include "ofMain.h"
 
+typedef int UCHAR;
+
 struct MidiModel {
 	using Ptr = std::shared_ptr<MidiModel>;
 

@@ -4,6 +4,9 @@
 #include "Events.h"
 #include "ScoreManager.h"
 
+typedef int UINT;
+typedef long ULONG;
+
 class Sequencer {
 public:
 	Sequencer() : globalBeat(0), currentBeat(0), currentBar(0), bpm(120) {}

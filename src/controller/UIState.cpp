@@ -136,10 +136,11 @@ void UIState::onMouseReleased() {
 			NoteModel n{ 
 				grids->getChan(),
 				grids->getBar(),
-				x, y, 
-				defaultVelocity,
-				d,
-				currentEditLevel
+				static_cast<unsigned char>(x),
+				static_cast<unsigned char>(y), 
+				static_cast<unsigned char>(defaultVelocity),
+				static_cast<unsigned char>(d),
+				static_cast<unsigned char>(currentEditLevel)
 			};
 
 			int id = score->create(n);

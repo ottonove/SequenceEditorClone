@@ -110,7 +110,7 @@ int ScoreManager::create(const NoteModel& note) {
 	auto& s = midis[b][c][note.x];
 	s.emplace(note.y + pitchCount, std::make_shared<MidiModel>(true, note.velocity, note.y, note.level));
 
-	auto& beatAndBar = calcEnd(note.x, note.barNum, note.duration);
+	const auto& beatAndBar = calcEnd(note.x, note.barNum, note.duration);
 	auto& e = midis[beatAndBar.second][c][beatAndBar.first];
 	e.emplace(note.y, std::make_shared<MidiModel>(false, 0, note.y, note.level));
 
@@ -159,7 +159,7 @@ void ScoreManager::remove(int id) {
 	NoteModel& n = notes[b][c][id];
 	if (n.x > 15) return;
 	
-	auto& beatAndBar = calcEnd(n.x, n.barNum, n.duration);
+	const auto& beatAndBar = calcEnd(n.x, n.barNum, n.duration);
 
 	auto& s = midis[b][c][n.x];
 	s.erase(n.midiId[0]);
@@ -173,7 +173,7 @@ void ScoreManager::remove(int id) {
 void ScoreManager::remove(unsigned char bar, unsigned char ch, int id) {
 
 	NoteModel& n = notes[bar][ch][id];
-	auto& beatAndBar = calcEnd(n.x, n.barNum, n.duration);
+	const auto& beatAndBar = calcEnd(n.x, n.barNum, n.duration);
 
 	auto& s = midis[bar][ch][n.x];
 	s.erase(n.midiId[0]);

@@ -422,7 +422,7 @@ void UIManager::randomize(ExecRandom& e) {
 					int vel = ofClamp(state.defaultVelocity + velRange * ofRandom(-1, 1), 0, 128);
 
 					NoteModel n{
-						e.ch, b, i, currentY, vel, 1, 3
+						static_cast<unsigned char>(e.ch), static_cast<unsigned char>(b), static_cast<unsigned char>(i), static_cast<unsigned char>(currentY), static_cast<unsigned char>(vel), 1, 3
 					};
 
 					int id = score->create(n);
