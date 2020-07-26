@@ -7,7 +7,7 @@ public:
 	MidiSender() {
 		//midiOut.listPorts();
 		/// LoopMidi = 1
-		midiOut.openPort(1);
+		midiOut.openPort(0);
 	}
 
 	~MidiSender() {
@@ -15,6 +15,7 @@ public:
 	}
 
 	void sendMidiOn(unsigned char ch, unsigned char midiNum, unsigned char velocity) {
+		ofLogNotice() << "note: " << midiNum;
 		midiOut.sendNoteOn(ch, midiNum, velocity);
 	}
 
