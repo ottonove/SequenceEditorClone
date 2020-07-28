@@ -15,7 +15,7 @@ public:
 	}
 
 	void sendMidiOn(unsigned char ch, unsigned char midiNum, unsigned char velocity) {
-		ofLogNotice() << "note: " << midiNum;
+		ofLogNotice() << "ch: " << +ch << " note: " << +midiNum;;
 		midiOut.sendNoteOn(ch, midiNum, velocity);
 	}
 
